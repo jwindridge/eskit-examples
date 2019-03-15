@@ -1,0 +1,45 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-airbnb",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "function-name": [
+      true,
+      {
+        "private-method-regex": "^_[a-z][\\w\\d]+$"
+      }
+    ],
+    "interface-name": [true, "always-prefix"],
+    "import-name": false,
+    "no-console": false,
+    // TODO: allow devDependencies only in **/*.spec.ts files:
+    // waiting on https://github.com/palantir/tslint/pull/3708
+    "no-implicit-dependencies": [
+      true,
+      "dev"
+    ],
+
+    "no-submodule-imports": [
+      true,
+      "eskit"
+    ],
+
+    "object-literal-sort-keys": [true, "shorthand-first"],
+    "prefer-array-literal": [
+      true,
+      {
+        "allow-type-parameters": true
+      }
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "never",
+        "singleline": "never"
+      }
+    ],
+    "variable-name": [true, "allow-leading-underscore"]
+  }
+}
