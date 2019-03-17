@@ -37,7 +37,12 @@
 
     "lib": ["es2017"],
     "types": ["node", "reflect-metadata"],
-    "typeRoots": ["node_modules/@types", "src/@types"]
+    "baseUrl": "src",
+    "typeRoots": ["../node_modules/@types", "./@types"],
+
+    "paths": {
+      "eskit/*": ["../node_modules/eskit/build/main/*"]
+    }
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules/**"],
