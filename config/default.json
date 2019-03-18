@@ -1,0 +1,11 @@
+{
+  "amqp": {
+    "url": "amqp://guest:guest@localhost:5672/cportal"
+  },
+  "storage": {
+    "config": {
+      "filepath": "C:\\dev\\dump\\IAM_Events.log"
+    },
+    "type": "filesystem"
+  }
+}
