@@ -26,9 +26,9 @@ class UserQueryService {
     return this._projection.getUserByUsername(username);
   }
 
-  public async getActiveUsers() {}
+  // public async getActiveUsers() {}
 
-  public async authenticateuser() {}
+  // public async authenticateuser() {}
 }
 
 export default UserQueryService;

@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { injectable } from 'inversify';
 
-import {IPasswordHashingService } from '../../domain/services'
+import { IPasswordHashingService } from '../../domain/services';
 
 const DEFAULT_SALT_ROUNDS = 10;
 
@@ -11,7 +11,6 @@ interface IBcryptPasswordHashingSeriveOpts {
 
 @injectable()
 class BcryptPasswordHashingService implements IPasswordHashingService {
-
   private _saltRounds: number;
 
   public constructor(opts: IBcryptPasswordHashingSeriveOpts = {}) {
@@ -22,10 +21,12 @@ class BcryptPasswordHashingService implements IPasswordHashingService {
     return bcrypt.hash(plaintext, this._saltRounds);
   }
 
-  public async verify(candidate: string, passwordHash: string): Promise<boolean> {
+  public async verify(
+    candidate: string,
+    passwordHash: string
+  ): Promise<boolean> {
     return bcrypt.compare(candidate, passwordHash);
   }
-
 }
 
 export default BcryptPasswordHashingService;

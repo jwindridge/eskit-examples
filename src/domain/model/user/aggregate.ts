@@ -1,4 +1,8 @@
-import { createAggregate, createEvent, IAggregateDefinition } from 'eskit/domain';
+import {
+  createAggregate,
+  createEvent,
+  IAggregateDefinition
+} from 'eskit/domain';
 
 import { DOMAIN_SERVICES, IPasswordHashingService } from '../../services';
 import { IUser } from './interfaces';
@@ -12,20 +16,22 @@ export const definition: IAggregateDefinition<IUser> = {
 
       const { email, password, username } = command.data;
 
-      const passwordService = services!.get<IPasswordHashingService>(DOMAIN_SERVICES.PasswordHashingService);
+      const passwordService = services!.get<IPasswordHashingService>(
+        DOMAIN_SERVICES.PasswordHashingService
+      );
       const passwordHash = await passwordService.hashPassword(password);
 
-      return createEvent('registered', { username, email, passwordHash })
+      return createEvent('registered', { username, email, passwordHash });
     }
   },
 
   eventHandlers: {
-    registered(_, { data: { email, passwordHash, username }}) {
+    registered(_, { data: { email, passwordHash, username } }) {
       return {
         email,
         passwordHash,
         username
-      }
+      };
     }
   },
 
@@ -36,6 +42,6 @@ export const definition: IAggregateDefinition<IUser> = {
   },
 
   name: 'user'
-}
+};
 
 export default createAggregate(definition);

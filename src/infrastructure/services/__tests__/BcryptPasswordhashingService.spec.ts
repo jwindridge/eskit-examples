@@ -1,4 +1,4 @@
-import { test } from './helpers'
+import { test } from './helpers';
 
 test('encrypt & verify correct password', async t => {
   const { passwordHashingService, plaintext } = t.context;
@@ -8,13 +8,13 @@ test('encrypt & verify correct password', async t => {
   t.true(plaintext !== hashed);
 
   t.true(await passwordHashingService.verify(plaintext, hashed));
-})
+});
 
 test('verify incorrect password fails', async t => {
   const { passwordHashingService, plaintext } = t.context;
   const hashed = await passwordHashingService.hashPassword(plaintext);
 
-  t.false(await passwordHashingService.verify('bad_password', hashed))
+  t.false(await passwordHashingService.verify('bad_password', hashed));
 });
 
 test('same password hashes to different value', async t => {
