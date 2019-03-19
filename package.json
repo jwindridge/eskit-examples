@@ -59,13 +59,20 @@
     "config": "^3.0.1",
     "eskit": "latest",
     "inversify": "^5.0.1",
+    "knex": "^0.16.3",
+    "lodash.sortby": "^4.7.0",
     "module-alias": "^2.2.0",
-    "reflect-metadata": "^0.1.13"
+    "mongo-sql": "^6.2.0",
+    "pg": "^7.9.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.15"
   },
   "devDependencies": {
     "@types/amqplib": "^0.5.11",
     "@types/bunyan": "^1.8.6",
     "@types/config": "0.0.34",
+    "@types/knex": "^0.15.2",
+    "@types/lodash.sortby": "^4.7.6",
     "ava": "1.0.0-beta.7",
     "codecov": "^3.1.0",
     "cz-conventional-changelog": "^2.1.0",

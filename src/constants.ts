@@ -1,3 +1,4 @@
 export const TYPES = {
-  ApplicationConfig: Symbol('ApplicationConfig')
+  ApplicationConfig: Symbol('ApplicationConfig'),
+  ProjectionStore: Symbol('ProjectionStore')
 };
