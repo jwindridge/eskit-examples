@@ -1,4 +1,4 @@
-import { IApplicationEvent } from 'eskit/application';
+import { IAggregateEvent } from 'eskit';
 import { inject, injectable } from 'inversify';
 import Knex, { QueryInterface } from 'knex';
 
@@ -18,14 +18,14 @@ class ActiveUsersProjection {
   public readonly tableName = 'p_active_users';
 
   public readonly handlers: IEventHandlerMap = {
-    'user.deactivated': async ({ aggregate: { id } }: IApplicationEvent) => {
+    'user.deactivated': async ({ aggregate: { id } }: IAggregateEvent) => {
       await this._db.where({ id }).update('active', false);
     },
     'user.registered': async ({
       aggregate: { id },
       data: { email, username, passwordHash },
       version
-    }: IApplicationEvent) => {
+    }: IAggregateEvent) => {
       const user = { email, id, version, passwordHash, username, active: true };
       await this._db.insert(user);
     }
@@ -51,7 +51,7 @@ class ActiveUsersProjection {
     return null;
   }
 
-  public async handleEvent(event: IApplicationEvent) {
+  public async handleEvent(event: IAggregateEvent) {
     const eventType = this._getEventType(event);
     if (Object.keys(this.handlers).includes(eventType)) {
       await this.handlers[eventType](event);
@@ -61,7 +61,7 @@ class ActiveUsersProjection {
   private _getEventType = ({
     aggregate: { name: aggregate },
     name: eventType
-  }: IApplicationEvent) => `${aggregate}.${eventType}`;
+  }: IAggregateEvent) => `${aggregate}.${eventType}`;
 }
 
 export default ActiveUsersProjection;
