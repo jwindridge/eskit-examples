@@ -59,7 +59,7 @@
     "config": "^3.0.1",
     "eskit": "latest",
     "inversify": "^5.0.1",
-    "knex": "^0.16.3",
+    "knex": "^0.19.5",
     "lodash.sortby": "^4.7.0",
     "module-alias": "^2.2.0",
     "mongo-sql": "^6.2.0",
