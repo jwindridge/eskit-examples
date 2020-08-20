@@ -54,7 +54,7 @@
     "@elastic.io/amqp-rpc": "^2.1.0",
     "@types/bcrypt": "^3.0.0",
     "amqplib": "^0.5.3",
-    "bcrypt": "^3.0.4",
+    "bcrypt": "^5.0.0",
     "bunyan": "^1.8.12",
     "config": "^3.0.1",
     "eskit": "latest",
